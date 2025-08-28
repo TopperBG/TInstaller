@@ -1,0 +1,2 @@
+rootProject.name='Technozon'
+include ':app'

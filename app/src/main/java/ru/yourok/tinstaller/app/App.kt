@@ -1,0 +1,36 @@
+package ru.yourok.tinstaller.app
+
+import android.app.Application
+import android.content.Context
+import android.os.Handler
+import android.os.Looper
+
+
+class App : Application() {
+    companion object {
+        private lateinit var contextApp: Context
+
+        fun getContext(): Context {
+            return contextApp
+        }
+
+        fun Toast(txt: String) {
+            Handler(Looper.getMainLooper()).post {
+                android.widget.Toast.makeText(contextApp, txt, android.widget.Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }
+
+        fun Toast(resId: Int) {
+            Handler(Looper.getMainLooper()).post {
+                android.widget.Toast.makeText(contextApp, resId, android.widget.Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+        contextApp = applicationContext
+    }
+}

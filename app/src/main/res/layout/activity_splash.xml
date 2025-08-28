@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_background">
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvLogoC1"
+            android:textSize="50sp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/background_gradient_start"
+            android:text="T" />
+
+        <TextView
+            android:id="@+id/tvLogoC2"
+            android:textSize="50sp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/background_gradient_start"
+            android:text="I" />
+
+        <TextView
+            android:id="@+id/tvLogoC3"
+            android:textSize="50sp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/background_gradient_start"
+            android:text="n" />
+
+        <TextView
+            android:id="@+id/tvLogoC4"
+            android:textSize="50sp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/background_gradient_start"
+            android:text="s" />
+
+        <TextView
+            android:id="@+id/tvLogoC5"
+            android:textSize="50sp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/background_gradient_start"
+            android:text="t" />
+
+        <TextView
+            android:id="@+id/tvLogoC6"
+            android:textSize="50sp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/background_gradient_start"
+            android:text="a" />
+
+        <TextView
+            android:id="@+id/tvLogoC7"
+            android:textSize="50sp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/background_gradient_start"
+            android:text="l" />
+
+        <TextView
+            android:id="@+id/tvLogoC8"
+            android:textSize="50sp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/background_gradient_start"
+            android:text="l" />
+
+        <TextView
+            android:id="@+id/tvLogoC9"
+            android:textSize="50sp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/background_gradient_start"
+            android:text="e" />
+
+        <TextView
+            android:id="@+id/tvLogoC10"
+            android:textSize="50sp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/background_gradient_start"
+            android:text="r" />
+    </LinearLayout>
+</FrameLayout>
