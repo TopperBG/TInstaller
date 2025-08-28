@@ -241,11 +241,16 @@ class MainActivity : AppCompatActivity() {
     private class CategoryPagerAdapter(fm: FragmentManager, val content: Content) : FragmentPagerAdapter(fm, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
         override fun getItem(position: Int): Fragment {
             if (categories[position] == "Все")
-                return PagerAppFragment.newInstance(content.apps ?: return Fragment())
+                return PagerAppFragment.newInstance(
+                    (content.apps ?: return Fragment()).sortedBy { it.title?.lowercase() }
+                )
             else if (categories[position] == "Полезные ссылки")
                 return PagerLinksFragment.newInstance(content.links ?: return Fragment())
             else {
-                val list = content.apps?.filter { it.category == categories[position] } ?: emptyList()
+                val list = content.apps
+                    ?.filter { it.category == categories[position] }
+                    ?.sortedBy { it.title?.lowercase() }
+                    ?: emptyList()
                 return PagerAppFragment.newInstance(list)
             }
         }
