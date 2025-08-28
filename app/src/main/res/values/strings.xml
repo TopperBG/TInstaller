@@ -1,21 +1,25 @@
 <resources>
     <string name="app_name">TInstaller</string>
 
-    <string name="select_all">Выделить все</string>
-    <string name="deselect">Снять выделение</string>
-    <string name="install">Установить</string>
-    <string name="subscribe">Подписаться</string>
+    <string name="select_all">Избери всички</string>
+    <string name="deselect">Премахни маркиране</string>
+    <string name="install">Инсталирай</string>
+    <string name="subscribe">Абонирай се</string>
 
-    <string name="error_retrieve_data">Ошибка: при получении данных</string>
+    <string name="error_retrieve_data">Грешка при получаване на данни</string>
 
-    <string name="agree">Соглашаюсь</string>
-    <string name="agreement">СОГЛАСИТЬСЯ</string>
-    <string name="cancel">Отмена</string>
+    <string name="agree">Съгласен съм</string>
+    <string name="agreement">СПОРАЗУМЕНИЕ</string>
+    <string name="cancel">Отказ</string>
 
-    <string name="enter_url">Введите адрес</string>
-    <string name="apply">Применить</string>
+    <string name="enter_url">Въведете адрес</string>
+    <string name="apply">Приложи</string>
 
-    <string name="youtube_chanel_label">НАЖМИ YouTube канал TECHNOZON</string>
+    <string name="youtube_chanel_label">КЛИКНЕТЕ за YouTube канала TECHNOZON</string>
 
-    <string name="license">ВНИМАНИЕ.\n\nДАННОЕ ПРИЛОЖЕНИЕ ЯВЛЯЕТСЯ ЭЛЕМЕНТАРНЫМ ЗАГРУЗЧИКОМ ПРИЛОЖЕНИЙ ИЗ ФАЙЛА УКАЗАННОГО ПОЛЬЗОВАТЕЛЕМ.\n\nПРИЛОЖЕНИЕ НЕ СОДЕРЖИТ ССЫЛОК НА ЗАПРЕЩЁННЫЕ ПРИЛОЖЕНИЯ ИЛИ ФАЙЛЫ НАРУШАЮЩИЕ АВТОРСКИЕ ИЛИ ЛЮБЫЕ СМЕЖНЫЕ ПРАВА.\n\nНАЖИМАЯ КНОПКУ СОГЛАСИТЬСЯ, ВЫ ПРИНИМАЕТЕ УСЛОВИЯ ИСПОЛЬЗОВАНИЯ И НЕСЁТЕ ПОЛНУЮ ОТВЕТСТВЕННОСТЬ ЗА ВОЗМОЖНОЕ НАРУШЕНИЕ АВТОРСКИХ ИЛИ ЛЮБЫХ СМЕЖНЫХ ПРАВ.</string>
+    <string name="license">ВНИМАНИЕ.\n\nТОВА ПРИЛОЖЕНИЕ Е ЕЛЕМЕНТАРНА ПРОГРАМА ЗА ЗАРЕЖДАНЕ НА ПРИЛОЖЕНИЯ ОТ ФАЙЛ, ПОСОЧЕН ОТ ПОТРЕБИТЕЛЯ.\n\nПРИЛОЖЕНИЕТО НЕ СЪДЪРЖА ВРЪЗКИ КЪМ ЗАБРАНЕНИ ПРИЛОЖЕНИЯ ИЛИ ФАЙЛОВЕ, КОИТО НАРУШАВАТ АВТОРСКИ ПРАВА ИЛИ СРОДНИ ПРАВА.\n\nКАТО КЛИКНЕТЕ ВЪРХУ БУТОНА „СЪГЛАСИЕ“, ВИЕ ПРИЕМАТЕ УСЛОВИЯТА ЗА ПОЛЗВАНЕ И ПОЕМАТЕ ПЪЛНА ОТГОВОРНОСТ ЗА ВСЯКО ВЪЗМОЖНО НАРУШАВАНЕ НА АВТОРСКИ ПРАВА ИЛИ СРОДНИ ПРАВА.</string>
+
+    <!-- Categories -->
+    <string name="category_all">Всички</string>
+    <string name="category_useful_links">Полезни връзки</string>
 </resources>

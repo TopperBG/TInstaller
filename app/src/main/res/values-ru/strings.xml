@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">TInstaller</string>
+
+    <string name="select_all">Выделить все</string>
+    <string name="deselect">Снять выделение</string>
+    <string name="install">Установить</string>
+    <string name="subscribe">Подписаться</string>
+
+    <string name="error_retrieve_data">Ошибка: при получении данных</string>
+
+    <string name="agree">Соглашаюсь</string>
+    <string name="agreement">СОГЛАСИТЬСЯ</string>
+    <string name="cancel">Отмена</string>
+
+    <string name="enter_url">Введите адрес</string>
+    <string name="apply">Применить</string>
+
+    <string name="youtube_chanel_label">НАЖМИ YouTube канал TECHNOZON</string>
+
+    <string name="license">ВНИМАНИЕ.\n\nДАННОЕ ПРИЛОЖЕНИЕ ЯВЛЯЕТСЯ ЭЛЕМЕНТАРНЫМ ЗАГРУЗЧИКОМ ПРИЛОЖЕНИЙ ИЗ ФАЙЛА УКАЗАННОГО ПОЛЬЗОВАТЕЛЕМ.\n\nПРИЛОЖЕНИЕ НЕ СОДЕРЖИТ ССЫЛОК НА ЗАПРЕЩЁННЫЕ ПРИЛОЖЕНИЯ ИЛИ ФАЙЛЫ НАРУШАЮЩИЕ АВТОРСКИЕ ИЛИ ЛЮБЫЕ СМЕЖНЫЕ ПРАВА.\n\nНАЖИМАЯ КНОПКУ СОГЛАСИТЬСЯ, ВЫ ПРИНИМАЕТЕ УСЛОВИЯ ИСПОЛЬЗОВАНИЯ И НЕСЁТЕ ПОЛНУЮ ОТВЕТСТВЕННОСТЬ ЗА ВОЗМОЖНОЕ НАРУШЕНИЕ АВТОРСКИХ ИЛИ ЛЮБЫХ СМЕЖНЫХ ПРАВ.</string>
+
+    <!-- Categories -->
+    <string name="category_all">Все</string>
+    <string name="category_useful_links">Полезные ссылки</string>
+</resources>

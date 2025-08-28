@@ -95,14 +95,16 @@ class MainActivity : AppCompatActivity() {
             categoryFilter.add(it.category)
         }
         val catTmp = categoryFilter.toList().sorted().toMutableList()
-        catTmp.add(0, "Все")
+        val allLabel = getString(R.string.category_all)
+        val linksLabel = getString(R.string.category_useful_links)
+        catTmp.add(0, allLabel)
         if (content.links?.isNotEmpty() == true)
-            catTmp.add(1, "Полезные ссылки")
+            catTmp.add(1, linksLabel)
 
         categories = catTmp
 
         val pager = findViewById<ViewPager>(R.id.vpCategories)
-        pagerAdapter = CategoryPagerAdapter(supportFragmentManager, content)
+        pagerAdapter = CategoryPagerAdapter(supportFragmentManager, content, allLabel, linksLabel)
         pager.adapter = pagerAdapter
     }
 
@@ -238,13 +240,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private class CategoryPagerAdapter(fm: FragmentManager, val content: Content) : FragmentPagerAdapter(fm, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+    private class CategoryPagerAdapter(
+        fm: FragmentManager,
+        val content: Content,
+        private val allLabel: String,
+        private val linksLabel: String
+    ) : FragmentPagerAdapter(fm, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
         override fun getItem(position: Int): Fragment {
-            if (categories[position] == "Все")
+            if (categories[position] == allLabel)
                 return PagerAppFragment.newInstance(
                     (content.apps ?: return Fragment()).sortedBy { it.title?.lowercase() }
                 )
-            else if (categories[position] == "Полезные ссылки")
+            else if (categories[position] == linksLabel)
                 return PagerLinksFragment.newInstance(content.links ?: return Fragment())
             else {
                 val list = content.apps
