@@ -22,4 +22,9 @@
     <!-- Categories -->
     <string name="category_all">Всички</string>
     <string name="category_useful_links">Полезни връзки</string>
+    <string name="category_result">Резултат</string>
+
+    <!-- Search -->
+    <string name="search_hint">Търсене по заглавие</string>
+    <string name="search">Търси</string>
 </resources>

@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.*
 import android.provider.Settings
 import android.widget.Button
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -37,6 +38,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private var pagerAdapter: CategoryPagerAdapter? = null
+    private var searchResults: List<ru.yourok.tinstaller.content.App> = emptyList()
+    private var allLabel: String = ""
+    private var linksLabel: String = ""
+    private var resultLabel: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         if (!Prefs.isLicenseAgree()) {
@@ -87,6 +92,26 @@ class MainActivity : AppCompatActivity() {
                 loadContent { fillContent(it) }
             }, { })
         }
+
+        findViewById<Button>(R.id.btnSearch)?.setOnClickListener {
+            val query = findViewById<EditText>(R.id.etSearch)?.text?.toString()?.trim() ?: ""
+            if (query.isEmpty()) {
+                // Clear results and remove tab if exists
+                if (searchResults.isNotEmpty()) {
+                    searchResults = emptyList()
+                    updateCategories()
+                }
+                return@setOnClickListener
+            }
+            loadContent { content ->
+                val results = content.apps
+                    ?.filter { it.title?.contains(query, ignoreCase = true) == true }
+                    ?.sortedBy { it.title?.lowercase() }
+                    ?: emptyList()
+                searchResults = results
+                updateCategories()
+            }
+        }
     }
 
     private fun fillContent(content: Content) {
@@ -95,17 +120,44 @@ class MainActivity : AppCompatActivity() {
             categoryFilter.add(it.category)
         }
         val catTmp = categoryFilter.toList().sorted().toMutableList()
-        val allLabel = getString(R.string.category_all)
-        val linksLabel = getString(R.string.category_useful_links)
+        allLabel = getString(R.string.category_all)
+        linksLabel = getString(R.string.category_useful_links)
+        resultLabel = getString(R.string.category_result)
         catTmp.add(0, allLabel)
         if (content.links?.isNotEmpty() == true)
             catTmp.add(1, linksLabel)
 
+        // Insert Result tab if we already have results (e.g., after rotation)
+        if (searchResults.isNotEmpty()) {
+            val insertIndex = if (catTmp.contains(linksLabel)) 2 else 1
+            catTmp.add(insertIndex, resultLabel)
+        }
+
         categories = catTmp
 
         val pager = findViewById<ViewPager>(R.id.vpCategories)
-        pagerAdapter = CategoryPagerAdapter(supportFragmentManager, content, allLabel, linksLabel)
+        pagerAdapter = CategoryPagerAdapter(supportFragmentManager, content, allLabel, linksLabel, resultLabel) { searchResults }
         pager.adapter = pagerAdapter
+    }
+
+    private fun updateCategories() {
+        loadContent { content ->
+            val categoryFilter = mutableSetOf<String>()
+            content.apps?.forEach { categoryFilter.add(it.category) }
+            val catTmp = categoryFilter.toList().sorted().toMutableList()
+            if (allLabel.isEmpty()) allLabel = getString(R.string.category_all)
+            if (linksLabel.isEmpty()) linksLabel = getString(R.string.category_useful_links)
+            if (resultLabel.isEmpty()) resultLabel = getString(R.string.category_result)
+            catTmp.add(0, allLabel)
+            if (content.links?.isNotEmpty() == true)
+                catTmp.add(1, linksLabel)
+            if (searchResults.isNotEmpty()) {
+                val insertIndex = if (catTmp.contains(linksLabel)) 2 else 1
+                catTmp.add(insertIndex, resultLabel)
+            }
+            categories = catTmp
+            updateListView(false)
+        }
     }
 
     override fun onResume() {
@@ -244,7 +296,9 @@ class MainActivity : AppCompatActivity() {
         fm: FragmentManager,
         val content: Content,
         private val allLabel: String,
-        private val linksLabel: String
+        private val linksLabel: String,
+        private val resultLabel: String,
+        private val getSearchResults: () -> List<ru.yourok.tinstaller.content.App>
     ) : FragmentPagerAdapter(fm, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
         override fun getItem(position: Int): Fragment {
             if (categories[position] == allLabel)
@@ -253,6 +307,8 @@ class MainActivity : AppCompatActivity() {
                 )
             else if (categories[position] == linksLabel)
                 return PagerLinksFragment.newInstance(content.links ?: return Fragment())
+            else if (categories[position] == resultLabel)
+                return PagerAppFragment.newInstance(getSearchResults())
             else {
                 val list = content.apps
                     ?.filter { it.category == categories[position] }

@@ -22,4 +22,9 @@
     <!-- Categories -->
     <string name="category_all">Все</string>
     <string name="category_useful_links">Полезные ссылки</string>
+    <string name="category_result">Результат</string>
+
+    <!-- Search -->
+    <string name="search_hint">Поиск по названию</string>
+    <string name="search">Искать</string>
 </resources>

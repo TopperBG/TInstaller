@@ -45,6 +45,26 @@
             android:layout_height="wrap_content"
             android:text="@string/youtube_chanel_label" />
 
+        <!--        Search + Content -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/search_hint"
+                android:imeOptions="actionSearch"/>
+            <Button
+                android:id="@+id/btnSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/search"/>
+        </LinearLayout>
+
         <!--        Content -->
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/vpCategories"
